@@ -21,8 +21,14 @@
     <div class="container">
 
         <h1>Trade Data Visually</h1>
-        <canvas id="myChart"></canvas>
-
+        <br>
+        <h2> EXPORTS FROM INDIA TO USA</h2>
+        <canvas id="export-data"></canvas>
+        <br>
+        <hr>
+        <br>
+        <h2> IMPORTS BY INDIA FROM USA</h2>
+        <canvas id="import-data"></canvas>
 
 
         <script>
@@ -38,6 +44,8 @@
             var importArray = [];
             var exportTop10Category = [];
             var exportTop10TradeValue = [];
+            var importTop10Category = [];
+            var importTop10TradeValue = [];
 
 
             $.ajax({
@@ -64,6 +72,7 @@
                 importArray.sort(sortFunction);
 
 
+                // Display Export Data
                 for (var j = 0; j < 10; j++) {
                     var label = exportArray[j][1];
                     exportTop10Category.push(label.substr(0, 24));
@@ -72,25 +81,36 @@
                 console.table(exportTop10Category);
                 console.table(exportTop10TradeValue);
 
-                drawChart();
+                drawChart("export-data", exportTop10Category, exportTop10TradeValue);
+
+                // Display Import Data
+                for (var j = 0; j < 10; j++) {
+                    var label = importArray[j][1];
+                    importTop10Category.push(label.substr(0, 24));
+                    importTop10TradeValue.push(importArray[j][3]);
+                }
+                console.table(importTop10Category);
+                console.table(importTop10TradeValue);
+
+                drawChart("import-data", importTop10Category, importTop10TradeValue );
 
 
             });
 
-            function drawChart() {
-                var ctx = document.getElementById('myChart').getContext('2d');
+            function drawChart(dataType, labelArray, DataArray) {
+                var ctx = document.getElementById(dataType).getContext('2d');
                 var chart = new Chart(ctx, {
                     // The type of chart we want to create
                     type: 'bar',
 
                     // The data for our dataset
                     data: {
-                        labels: exportTop10Category,
+                        labels: labelArray,
                         datasets: [{
                             label: "My First dataset",
                             backgroundColor: 'rgb(255, 99, 132)',
                             borderColor: 'rgb(255, 99, 132)',
-                            data: exportTop10TradeValue,
+                            data: DataArray,
                         }]
                     },
 
@@ -109,4 +129,5 @@
     <script src="./assets/javascript/app.js"></script>
 </body>
 
+<!-- Added by KAMAL after creating a branch  -->
 </html>
