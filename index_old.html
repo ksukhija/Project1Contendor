@@ -22,18 +22,13 @@
 
         <h1>Trade Data Visually</h1>
         <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    <canvas id="total-exports"></canvas>
-                </div>
-                
-                <div class="col-sm">
-                    <canvas id="top-5-category-chart"></canvas>
-                </div>
-            </div>
-        </div>
-
+        <h2> EXPORTS FROM INDIA TO USA</h2>
+        <canvas id="export-data"></canvas>
+        <br>
+        <hr>
+        <br>
+        <h2> IMPORTS BY INDIA FROM USA</h2>
+        <canvas id="import-data"></canvas>
 
 
         <script>
@@ -43,16 +38,7 @@
                 return (b[3] - a[3]);
 
             }
-            const TRADE_FLOW_EXPORTS = "2";
-            const TRADE_FLOW_IMPORTS = "1";
-            const R_REPORTING_AREA_CODE_FOR_USA = "842";   //area reporting the trade data
-            const PX_CLASSIFICATION = "HS";  // trade data classification. HS stands for Harmonized System (for Goods)
-            const PS_TIME_PERIOD = "2017";
-            const P_PARTNER_AREA_CODE_FOR_CANADA = "124"; // area receiving the trade
-            const RG_TRADE_REGIME = TRADE_FLOW_EXPORTS;  // import or export data
-            const CC_CLASSIFICATION_CODE = "AG2";
-          //  var param = "r=699&px=HS&ps=2017&p=842&freq=A";
-            var param = "r="+ R_REPORTING_AREA_CODE_FOR_USA + "&px="+PX_CLASSIFICATION + "&ps=" + PS_TIME_PERIOD + "&p=" + P_PARTNER_AREA_CODE_FOR_CANADA + "&rg=" + RG_TRADE_REGIME;// + "&cc=" + CC_CLASSIFICATION_CODE;
+            var param = "r=699&px=HS&ps=2017&p=842&freq=A";
             var queryURL = "https://comtrade.un.org/api/get?" + param;
             var exportArray = [];
             var importArray = [];
@@ -106,7 +92,7 @@
                 console.table(importTop10Category);
                 console.table(importTop10TradeValue);
 
-                drawChart("import-data", importTop10Category, importTop10TradeValue);
+                drawChart("import-data", importTop10Category, importTop10TradeValue );
 
 
             });
@@ -144,5 +130,4 @@
 </body>
 
 <!-- Added by KAMAL after creating a branch  -->
-
 </html>
