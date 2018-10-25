@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=980, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trade Data Visually</title>
+
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Added link to the jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Trade Data Visually</h1>
+        <br>
+        <h2> EXPORTS FROM INDIA TO USA</h2>
+        <canvas id="export-data"></canvas>
+        <br>
+        <hr>
+        <br>
+        <h2> IMPORTS BY INDIA FROM USA</h2>
+        <canvas id="import-data"></canvas>
+
+
+        <script>
+
+            function sortFunction(a, b) {
+
+                return (b[3] - a[3]);
+
+            }
+            var param = "r=699&px=HS&ps=2017&p=842&freq=A";
+            var queryURL = "https://comtrade.un.org/api/get?" + param;
+            var exportArray = [];
+            var importArray = [];
+            var exportTop10Category = [];
+            var exportTop10TradeValue = [];
+            var importTop10Category = [];
+            var importTop10TradeValue = [];
+
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+
+                console.log(response);
+                var len = response.dataset.length;
+                var rDset = response.dataset
+                console.log(response.dataset[0].TradeValue);
+
+
+                for (var i = 0; i < len; i++) {
+
+                    if (rDset[i].rgDesc == 'Export') {
+                        exportArray.push([rDset[i].rtTitle, rDset[i].cmdDescE, rDset[i].rgDesc, rDset[i].TradeValue, rDset[i].ptTitle]);
+                    } else {
+                        importArray.push([rDset[i].rtTitle, rDset[i].cmdDescE, rDset[i].rgDesc, rDset[i].TradeValue, rDset[i].ptTitle]);
+                    }
+                }
+
+                exportArray.sort(sortFunction);
+                importArray.sort(sortFunction);
+
+
+                // Display Export Data
+                for (var j = 0; j < 10; j++) {
+                    var label = exportArray[j][1];
+                    exportTop10Category.push(label.substr(0, 24));
+                    exportTop10TradeValue.push(exportArray[j][3]);
+                }
+                console.table(exportTop10Category);
+                console.table(exportTop10TradeValue);
+
+                drawChart("export-data", exportTop10Category, exportTop10TradeValue);
+
+                // Display Import Data
+                for (var j = 0; j < 10; j++) {
+                    var label = importArray[j][1];
+                    importTop10Category.push(label.substr(0, 24));
+                    importTop10TradeValue.push(importArray[j][3]);
+                }
+                console.table(importTop10Category);
+                console.table(importTop10TradeValue);
+
+                drawChart("import-data", importTop10Category, importTop10TradeValue );
+
+
+            });
+
+            function drawChart(dataType, labelArray, DataArray) {
+                var ctx = document.getElementById(dataType).getContext('2d');
+                var chart = new Chart(ctx, {
+                    // The type of chart we want to create
+                    type: 'bar',
+
+                    // The data for our dataset
+                    data: {
+                        labels: labelArray,
+                        datasets: [{
+                            label: "My First dataset",
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: DataArray,
+                        }]
+                    },
+
+                    // Configuration options go here
+                    options: {}
+                });
+
+            }
+
+
+        </script>
+
+    </div>
+
+    <!-- Loading the Javasript after all the HTML code -->
+    <script src="./assets/javascript/app.js"></script>
+</body>
+
+<!-- Added by KAMAL after creating a branch  -->
+</html>
