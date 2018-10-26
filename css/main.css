@@ -1,4 +1,11 @@
 
+.body{
+	background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
       
@@ -18,9 +25,10 @@
       border: 1px solid #ddd;
 } 
 
- 
 
-
+ .navbar{
+	 font-family: 'Alike';font-size: 22px;
+ }
 
 
 

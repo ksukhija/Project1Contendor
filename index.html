@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <body background="images/Earthconcept.jpg">
+   <body background="images/back1.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Charts's in Charge</title>
+    <link href='https://fonts.googleapis.com/css?family=Alike' rel='stylesheet'>
     <!-- Bootstrap -->
     <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-blue bg-dark">
-      <a class="navbar-brand" href="index.html">Data Visualizations</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-primary">
+      <a class="navbar-brand " href="index.html"> <img src="images/logoearth.jpg" width="40" height="40" alt=""> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,162 +26,158 @@
           <li class="nav-item active dropdown">
             <a class="nav-link" href="index.html" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Trade Data</a>
           </li>
-          <li class="nav-item dropdown">
+
+          <li class="nav-item active dropdown">
             <a class="nav-link" href="censusData.html" id="navbarDropdown" role="button"  >Census Data</a>
                       </li>
         </ul>
+		  <ul class="navbar-nav ml-auto">
+			<li class="nav-item active dropdown">
+				<a class="nav-link" href="index.html" style="text-align: right;align-content: right;">Data Visualizations</a>
+            </li>
+		  </ul>
       </div>
     </nav>
     <hr>
-    <div class="container">
-      <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel" style="background-color: grey">
+
+	<div class="container border border-secondary">
+      <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel" style="background-color:darkolivegreen">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active"> <img class="d-block mx-auto" src="images/Carousel_Placeholder.png" alt="First slide">
+          <div class="carousel-item active"> <img class="d-block  mx-auto" id="first-slide" src="images/Beverages.jpg"   alt="First slide" style="height:400px">
             <div class="carousel-caption">
-              <h5>First slide Heading</h5>
-              <p>First slide Caption</p>
+              <h4 class="text-primary">TOP FIVE SUBCATEGORIES</h4>
+              <br>
             </div>
           </div>
-          <div class="carousel-item"> <img class="d-block mx-auto" src="images/Carousel_Placeholder.png" alt="Second slide">
+          <div class="carousel-item"> <img id="second-slide" class="d-block mx-auto" src="images/Iron and Steel.jpg"
+              style="height:400px" alt="Second slide">
             <div class="carousel-caption">
-              <h5>Second slide Heading</h5>
-              <p>Second slide Caption</p>
+              <h4 class="text-primary">TOP FIVE SUBCATEGORIES</h4>
+              <br>
+
             </div>
           </div>
-          <div class="carousel-item"> <img class="d-block mx-auto" src="images/Carousel_Placeholder.png" alt="Third slide">
+          <div class="carousel-item"> <img id="third-slide" class="d-block  mx-auto" src="images/Coffee.jpg" style="height:400px"
+              alt="Third slide">
             <div class="carousel-caption">
-              <h5>Third slide Heading</h5>
-              <p>Third slide Caption</p>
+              <h4 class="text-primary">TOP FIVE SUBCATEGORIES</h4>
+              <br>
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     </div>
     <hr>
-    <section>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" id="pause-btn">Click to Pause</button>
+    </div>
+    <br>
+    <br>
+
       <div class="container">
-        <div class="row"></div>
+      <div class="card-deck ">
 
         
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-lg"> Exporting Countries</button>
-        <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
-        <div class="dropdown-menu">
-          
-          <a class="dropdown-item" href="#">First Link</a> <a class="dropdown-item disabled" href="#" >Disabled Link</a> <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Seperated Link</a> </div>
-          <div class="btn-group">
-              <button type="button" class="btn btn-lg"> Importing Countries</button>
-              <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
-              <div class="dropdown-menu">
-                
-                <a class="dropdown-item" href="#">First Link</a> <a class="dropdown-item disabled" href="#" >Disabled Link</a> <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Seperated Link</a> </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-lg"> Commodities</button>
-                    <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
-                    <div class="dropdown-menu">
-                      
-          <a class="dropdown-item" href="#">First Link</a> <a class="dropdown-item disabled" href="#" >Disabled Link</a> <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Seperated Link</a> </div>
-                      <div class="btn-group">
-                          <button type="button" class="btn btn-lg">Large Button</button>
-                          <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
-                          <div class="dropdown-menu">
-                            
-                            <a class="dropdown-item" href="#">First Link</a> <a class="dropdown-item disabled" href="#" >Disabled Link</a> <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Seperated Link</a> </div>
-                            <div class="btn-group float-right">
-                                <button type="button" class="btn btn-lg">Large Button</button>
-                                <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
-                        </div>
-</div>
-    </section>
-    <div class="container mt-4">
-      <div class="row">
-        <div class="col-sm-6 col-xl-12">
-          <div class="card">
-            <img class="card-img-top" src="https://dummyimage.com/16:9x1080/" alt="Card image cap">
-            <div class="card-body">
-              <div class="btn-group">
-                <button type="button" class="btn btn-lg">Large Button</button>
-                <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
-                <div class="dropdown-menu">
-                  <h6 class="dropdown-header">Dropdown header 1</h6>
-                  <a class="dropdown-item" href="#">First Link</a> <a class="dropdown-item disabled" href="#" >Disabled Link</a> <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Seperated Link</a> </div>
-              </div>
-              
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-12">
-          <div class="card"></div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="container py-sm-4">
-          <div class="row">
-            <div class="media-object-default">
-              <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 1</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-              </div>
-              <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 2</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively.
-                  <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0">Nested media heading</h5>
-                      This is the content inside the nested media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-                  </div>
-                </div>
-              </div>
-              <div class="media">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 4</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-                <img class="d-flex ml-3" src="images/MediaObj_Placeholder.png" alt="placeholder image"> </div>
-              <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 5</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-                <img class="d-flex ml-3" src="images/MediaObj_Placeholder.png" alt="placeholder image"> </div>
+
+        <div class="card  border-primary text-white bg-primary">
+          <div class="card-header text-center">
+            <div class="card-title">
+              <h3 class="text-white" id="cat-heading">
+                <h3>
             </div>
           </div>
+          <div class="card-body text-center text-warning">
+            <br>
+            <h1 class="display-4" id="cat-total-value"></h1>
+          </div>
         </div>
+
+
+        <div class="card  border-primary text-white bg-primary">
+          <div class="card-header text-center">
+            <div class="card-title">
+              <h3 class="text-white"> SUBCATEGORY $ VALUE <h3>
+            </div>
+          </div>
+          <div class="card-body text-warning">
+            <h5 id="sub-cat-1"></h5>
+            <h5 id="sub-cat-2"></h5>
+            <h5 id="sub-cat-3"></h5>
+            <h5 id="sub-cat-4"></h5>
+            <h5 id="sub-cat-5"></h5>
+
+          </div>
+
+        </div>
+
+
       </div>
+     
     </div>
+<br>
+    <div class="container mt-4 text-center text-primary">
+      <div class="form-check form-check-inline showChart">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="barChart" value="option1">
+        <label class="form-check-label" for="inlineRadio1">Bar Chart</label>
+      </div>
+      <div class="form-check form-check-inline showChart">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pieChart" value="option2">
+        <label class="form-check-label" for="inlineRadio2">Pie Chart</label>
+      </div>
+      <div class="form-check form-check-inline showChart">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="doughNutChart" value="option3"
+          checked>
+        <label class="form-check-label" for="inlineRadio3">Doughnut Chart</label>
+      </div>
+
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col">
+          <div class="card  border border-secondary">
+            <div class="card-body">
+              <canvas id="trade-data-chart"></canvas>
+            </div>
+          </div>
+
+          <!-- <div class="col-sm-6 col-xl-12">
+          <div class="card"></div>
+        </div> -->
+        </div>
+
+      </div>
+
     <hr>
-    <div class="container"></div>
-    <hr>
+
     <footer class="text-center">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <p>KGS Unlimited © </p>
+            <p><small>KGS Unlimited © </small></p>
           </div>
         </div>
       </div>
     </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.2.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>    
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
+    <script src="js/app.js"></script>
   </body>
+
+
 </html>
