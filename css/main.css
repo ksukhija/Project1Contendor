@@ -1,0 +1,39 @@
+
+.body{
+	background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+      
+        height: 30%;
+		width: 30%;
+     
+      border-radius: 10px;
+      border: 1px solid #ddd;
+        }
+		
+
+ #CarousalCensus
+{
+	  width: 30%;
+      height: 20%;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+} 
+
+
+ .navbar{
+	 font-family: 'Hind Madurai', sans-serif; font-size: 30px;
+ }
+
+
+
+
+
+
+
+
