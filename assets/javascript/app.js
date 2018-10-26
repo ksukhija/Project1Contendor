@@ -57,6 +57,19 @@ function showDataInSpecifiedChart(chartTypeSel) {
 }
 
 
+$("#carouselExampleIndicators2").on("click", carouselEventHandler);
+
+function carouselEventHandler(event) {
+    alert ("Hi I'm at carousel handler");
+
+
+
+}
+
+$('#carouselExampleIndicators2').on('slide.bs.carousel', function (event) {
+    alert("at carousel event type =" + event.to);
+  })
+
 
 $.ajax({
     url: queryURL,
