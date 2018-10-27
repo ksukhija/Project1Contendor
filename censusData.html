@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-  <body background="images/back1.png">
+   <body background="images/back1.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Charts's in Charge</title>
-
 
     <link href='https://fonts.googleapis.com/css?family=Alike' rel='stylesheet'>
 	<!-- Bootstrap -->
@@ -21,7 +19,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-primary">
       <a class="navbar-brand " href="index.html"> <img src="images/logoearth.jpg" width="40" height="40" alt=""> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +26,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
           <li class="nav-item active dropdown">
             <a class="nav-link" href="index.html" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Trade Data</a>
           </li>
@@ -54,7 +50,6 @@
           <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-
           <div class="carousel-item active"> <img class="d-block mx-auto img-responsive" src="images/airport-revenue.jpg" alt="First slide" style="width:700px;height:400px">
 
           </div>
@@ -69,21 +64,27 @@
     <hr>
     
 	
-
 	<section >
 	<div class="container mt-4" style="font-size: 20px;"	>
     <div class="card">
         <div class="row"></div>   
 		<div class="row border border-secondary">
-		<div class="col-sm-4">
+		<div class="col-sm-2">
 			<div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Region
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select State
 				<span class="caret"></span></button>
 				<ul class="dropdown-menu">
-				  <li><a href="#">HTML</a></li>
-				  <li><a href="#">CSS</a></li>
-				  <li><a href="#">JavaScript</a></li>
-				  <li><a href="#">About Us</a></li>
+				  <li><a href="#">Alabama</a></li>
+				  <li><a href="#">Alaska</a></li>
+				  <li><a href="#">Arizona</a></li>
+				  <li><a href="#">California</a></li>
+				  <li><a href="#">Delaware</a></li>
+				  <li><a href="#">Hawaii</a></li>
+				  <li><a href="#">Maryland</a></li>
+				  <li><a href="#">Montana</a></li>
+				  <li><a href="#">Nevada</a></li>
+				  <li><a href="#">New York</a></li>
+				  <li><a href="#">North Carolina</a></li>				  			 
 				</ul>
 			</div>
 		</div>
@@ -93,24 +94,52 @@
                 <label class="form-check-label" for="inlineRadio1">Bar Chart</label>
             </div>
             <div class="form-check form-check-inline showChart">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pieChart" value="option2">
-                <label class="form-check-label" for="inlineRadio2">Pie Chart</label>
+                <input class="form-check-input" checked type="radio" name="inlineRadioOptions" id="lineChart" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Line Chart</label>
             </div>
+			<!--
             <div class="form-check form-check-inline showChart">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="doughNutChart" value="option3">
                 <label class="form-check-label" for="inlineRadio3">Doughnut Chart</label>
-            </div>
+            </div> -->
     </div>
-    <div class="col-sm-2">Stats For Stories</div>
+    <div class="col-sm-4" id="StateTitle">Stats For Stories</div>
 		</div>
 		<div class="row"></div> 
 	</div>
 	
     </section>
 	
+	<div class="container mt-4">
+      <div class="row">
+        <div class="col-sm-6 col-xl-12 border border-secondary">
+	
+	<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-fill nav-justified " role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">State - County Population</a></li>
+  <li><a href="#USPop" role="tab" data-toggle="tab">USA Cumulative</a></li>
+  <li><a href="#censusacademy" role="tab" data-toggle="tab">USA State Totals</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+	<h2>Statewise Stats</h2><canvas id="StateArea-data" ></canvas>
+  </div>
+  <div class="tab-pane" id="USPop">
+	<h2>USA Population change over past 7 years </h2><canvas id="USTtlPop-data"></canvas>
+  </div>
+  <div class="tab-pane" id="censusacademy">
+	<h2>Census Academy</h2><canvas id="StatePop-data"></canvas>
+  </div>
+</div>
+	
+    </div>
+  </div>
+  </div>	
+	<!-- 
     <div class="container mt-4">
       <div class="row">
-
         <div class="col-sm-6 col-xl-12 border border-secondary">
           <div class="card">      
               <h2>Census Academy</h2>
@@ -120,59 +149,50 @@
               <canvas id="USTtlPop-data"></canvas>
              
               <h2>Statewise Stats</h2>
-              <canvas id="StateArea-data"></canvas>
+              <canvas id="StateArea-data" ></canvas>
 			  
-            <div class="card-body">
-        </div>
-        <div class="col-sm-6 col-xl-12">
+            <div class="card-body"></div>
+            <div class="col-sm-6 col-xl-12">
           <div class="card"></div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  --> 
+    <hr>
+    <div class="row"></div>
     <div class="container">
-      <div class="row">
-        <div class="container py-sm-4">
-          <div class="row">
-            <div class="media-object-default">
-              <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 1</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-              </div>
-              <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 2</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively.
-                  <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0">Nested media heading</h5>
-                      This is the content inside the nested media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-                  </div>
-                </div>
-              </div>
-              <div class="media">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 4</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-                <img class="d-flex ml-3" src="images/MediaObj_Placeholder.png" alt="placeholder image"> </div>
-              <div class="media"> <img class="d-flex mr-3" src="images/MediaObj_Placeholder.png" alt="placeholder image">
-                <div class="media-body">
-                  <h5 class="mt-0">Media heading 5</h5>
-                  This is the content inside the media-body. By default the media is top-aligned. Use class "align-self-center" or "align-self-end" to middle align or bottom align them, respectively. </div>
-                <img class="d-flex ml-3" src="images/MediaObj_Placeholder.png" alt="placeholder image"> </div>
-            </div>
+      <div class="card-deck ">
+        
+        <div class="card border border-secondary">
+          <div class="card-header bg-info text-center">
+            <div class="card-title"><h3 class="text-white" id="strstate"><h3></div>
+          </div>
+          <div class="card-body text-center text-primary">
+            <br>
+            <h5 class="display-6" id="funcfact"></h5>
           </div>
         </div>
-      </div>
+
+
+        <div class="card border border-secondary">
+          <div class="card-header bg-info text-center">
+            <div class="card-title"><h3 class="text-white" id="strstate1"><h3></div>
+          </div>
+          <div class="card-body text-center text-primary">
+            <br>
+            <h5 class="display-6" id="geographyfact"></h5>
+          </div>
+        </div>
+     
     </div>
     <hr>
-    <div class="container"></div>
-    <hr>
+   
     <footer class="text-center">
       <div class="container">
         <div class="row">
           <div class="col-12">
-
             <p><small>KGS Unlimited © </small></p>
           </div>
         </div>
@@ -183,6 +203,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
+    <script src="js/Factarray.js"></script>
     <!-- Loading the Javasript after all the HTML code -->
     <script src="js/censusData.js"></script>
   </body>

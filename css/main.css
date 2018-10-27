@@ -1,11 +1,7 @@
-
 .body{
 	background-repeat: no-repeat;
     background-size: auto;
 }
-
-
-
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
       
@@ -17,7 +13,7 @@
         }
 		
 
- #CarousalCensus
+#CarousalCensus
 {
 	  width: 30%;
       height: 20%;
@@ -25,11 +21,35 @@
       border: 1px solid #ddd;
 } 
 
-
  .navbar{
-	 font-family: 'Hind Madurai', sans-serif; font-size: 30px;
+	 font-family: 'Alike';font-size: 22px;
  }
 
+ .nav-tabs{
+  background-color:lightBlue;
+  font-family: 'Alike';font-size: 18px;
+ 
+}
+.tab-content{
+    background-color:white;
+    color:#fff;
+    padding:5%;
+}
+.nav-tabs > li > a{
+  border: medium none;
+  padding: 5%;
+  width: 150px;
+  font-family: 'Alike';font-size: 18px;
+  border: medium none;
+  border-radius: 0;
+ 
+}
+.nav-tabs > li > a:hover{
+  background-color: #black !important;
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+}
 
 
 
